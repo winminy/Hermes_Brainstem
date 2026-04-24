@@ -1,0 +1,412 @@
+{
+  "page": {
+    "id": "page-123",
+    "created_time": "2026-04-23T09:30:00Z",
+    "last_edited_time": "2026-04-24T07:00:00Z",
+    "url": "https://www.notion.so/page-123",
+    "properties": {
+      "Name": {
+        "type": "title",
+        "title": [
+          {
+            "type": "text",
+            "plain_text": "Architecture Snapshot",
+            "text": {
+              "content": "Architecture Snapshot",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false
+            }
+          }
+        ]
+      },
+      "Status": {
+        "type": "status",
+        "status": {
+          "name": "Draft"
+        }
+      },
+      "Summary": {
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "plain_text": "Primary system note",
+            "text": {
+              "content": "Primary system note",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false
+            }
+          }
+        ]
+      }
+    }
+  },
+  "blocks": [
+    {
+      "id": "paragraph-1",
+      "type": "paragraph",
+      "paragraph": {
+        "rich_text": [
+          {
+            "type": "text",
+            "plain_text": "bold",
+            "text": {
+              "content": "bold",
+              "link": null
+            },
+            "annotations": {
+              "bold": true,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false
+            }
+          },
+          {
+            "type": "text",
+            "plain_text": ", ",
+            "text": {
+              "content": ", ",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false
+            }
+          },
+          {
+            "type": "text",
+            "plain_text": "italic",
+            "text": {
+              "content": "italic",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": true,
+              "strikethrough": false,
+              "underline": false,
+              "code": false
+            }
+          },
+          {
+            "type": "text",
+            "plain_text": ", ",
+            "text": {
+              "content": ", ",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false
+            }
+          },
+          {
+            "type": "text",
+            "plain_text": "struck",
+            "text": {
+              "content": "struck",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": true,
+              "underline": false,
+              "code": false
+            }
+          },
+          {
+            "type": "text",
+            "plain_text": ", ",
+            "text": {
+              "content": ", ",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false
+            }
+          },
+          {
+            "type": "text",
+            "plain_text": "inline",
+            "text": {
+              "content": "inline",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": true
+            }
+          },
+          {
+            "type": "text",
+            "plain_text": ", ",
+            "text": {
+              "content": ", ",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false
+            }
+          },
+          {
+            "type": "text",
+            "plain_text": "docs",
+            "text": {
+              "content": "docs",
+              "link": {
+                "url": "https://example.test/docs"
+              }
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "heading-3",
+      "type": "heading_3",
+      "heading_3": {
+        "rich_text": [
+          {
+            "type": "text",
+            "plain_text": "Deep details",
+            "text": {
+              "content": "Deep details",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "paragraph-2",
+      "type": "paragraph",
+      "paragraph": {
+        "rich_text": [
+          {
+            "type": "text",
+            "plain_text": "Related note: ",
+            "text": {
+              "content": "Related note: ",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false
+            }
+          },
+          {
+            "type": "mention",
+            "plain_text": "Project Atlas",
+            "mention": {
+              "type": "page",
+              "page": {
+                "id": "page-456"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "image-1",
+      "type": "image",
+      "image": {
+        "type": "file",
+        "file": {
+          "url": "https://example.test/files/diagram.png"
+        },
+        "caption": [
+          {
+            "type": "text",
+            "plain_text": "diagram.png",
+            "text": {
+              "content": "diagram.png",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "code-1",
+      "type": "code",
+      "code": {
+        "language": "python",
+        "rich_text": [
+          {
+            "type": "text",
+            "plain_text": "print('hello')",
+            "text": {
+              "content": "print('hello')",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "equation-1",
+      "type": "equation",
+      "equation": {
+        "expression": "mc^2"
+      }
+    },
+    {
+      "id": "table-1",
+      "type": "table",
+      "table": {
+        "table_width": 2,
+        "has_column_header": true,
+        "has_row_header": false
+      },
+      "children": [
+        {
+          "id": "row-1",
+          "type": "table_row",
+          "table_row": {
+            "cells": [
+              [
+                {
+                  "type": "text",
+                  "plain_text": "Name",
+                  "text": {
+                    "content": "Name",
+                    "link": null
+                  },
+                  "annotations": {
+                    "bold": false,
+                    "italic": false,
+                    "strikethrough": false,
+                    "underline": false,
+                    "code": false
+                  }
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "plain_text": "Value",
+                  "text": {
+                    "content": "Value",
+                    "link": null
+                  },
+                  "annotations": {
+                    "bold": false,
+                    "italic": false,
+                    "strikethrough": false,
+                    "underline": false,
+                    "code": false
+                  }
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "id": "row-2",
+          "type": "table_row",
+          "table_row": {
+            "cells": [
+              [
+                {
+                  "type": "text",
+                  "plain_text": "Alpha",
+                  "text": {
+                    "content": "Alpha",
+                    "link": null
+                  },
+                  "annotations": {
+                    "bold": false,
+                    "italic": false,
+                    "strikethrough": false,
+                    "underline": false,
+                    "code": false
+                  }
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "plain_text": "42",
+                  "text": {
+                    "content": "42",
+                    "link": null
+                  },
+                  "annotations": {
+                    "bold": false,
+                    "italic": false,
+                    "strikethrough": false,
+                    "underline": false,
+                    "code": false
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

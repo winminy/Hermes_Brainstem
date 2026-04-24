@@ -1,0 +1,36 @@
+# Python build and cache artifacts
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Local config and secrets
+.env
+.env.*
+config.yaml
+
+# OS/editor junk
+.DS_Store
+Thumbs.db
+
+# Project-specific generated data
+.phase4_pre_snapshot.json
+vault/
+vault_meta/_system_backup/
+data/last_sync.json
+data/sync.log
+data/lightrag_store/

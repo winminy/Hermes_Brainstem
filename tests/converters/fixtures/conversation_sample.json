@@ -1,0 +1,30 @@
+{
+  "session_id": "sess-42",
+  "model": "gpt-5.4",
+  "platform": "discord",
+  "conversation_history": {
+    "messages": [
+      {
+        "role": "user",
+        "content": "This raw transcript must not be persisted.",
+        "attachments": []
+      },
+      {
+        "role": "assistant",
+        "content": "Acknowledged.",
+        "attachments": [
+          {
+            "filename": "screenshot.png",
+            "media_type": "image/png",
+            "payload_base64": "aW1hZ2UtYnl0ZXM="
+          },
+          {
+            "file_name": "spec.pdf",
+            "mime_type": "application/pdf",
+            "payload_base64": "JVBERi0xLjc="
+          }
+        ]
+      }
+    ]
+  }
+}

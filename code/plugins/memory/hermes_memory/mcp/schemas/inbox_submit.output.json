@@ -1,0 +1,1 @@
+{"type":"object","additionalProperties":false,"required":["status"],"properties":{"status":{"type":"string"},"inbox_path":{"type":["string","null"]},"knowledge_path":{"type":["string","null"]},"quarantine_path":{"type":["string","null"]},"reason":{"type":["string","null"]},"reason_tag":{"type":["string","null"]},"queue_path":{"type":["string","null"]}}}

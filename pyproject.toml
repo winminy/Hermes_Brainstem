@@ -1,0 +1,76 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hermes-memory-provider"
+version = "0.14.0"
+description = "Hermes Memory Provider package, doctor CLI, and MCP server integration"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+authors = [{ name = "Nous Research" }]
+dependencies = [
+  "pydantic>=2",
+  "pydantic-settings>=2",
+  "PyYAML",
+  "structlog",
+  "jsonschema",
+  "filelock",
+  "lightrag-hku",
+  "notion-client",
+  "httpx",
+  "python-frontmatter",
+  "mcp",
+  "anyio",
+]
+
+[project.optional-dependencies]
+embedding-api = [
+  "openai",
+]
+embedding-local = [
+  "sentence-transformers",
+  "torch",
+]
+dev = [
+  "coverage",
+  "mypy",
+  "pytest",
+  "ruff",
+  "types-jsonschema",
+  "types-PyYAML",
+]
+
+[project.scripts]
+hermes-memory-doctor = "hermes_memory.cli:doctor"
+
+[tool.setuptools]
+package-dir = {"" = "code"}
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["code"]
+
+[tool.setuptools.package-data]
+"plugins.memory.hermes_memory.config.resources" = [
+  "_system/*.md",
+  "_system/data_ops/*.md",
+  "_system/self_reference/*.md",
+  "_system/skills/*.md",
+  "_system/skills/default/*.md",
+]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+explicit_package_bases = true
+files = ["code", "tests"]
+mypy_path = ["code"]
+
+[tool.ruff]
+src = ["code", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+ignore = ["B009", "E501", "I001", "SIM103", "SIM108", "UP017", "UP037", "UP042", "UP046", "UP047"]

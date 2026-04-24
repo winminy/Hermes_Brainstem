@@ -1,0 +1,132 @@
+# Hermes Memory Provider deployment example configuration.
+# Copy this file to ./config.yaml and replace placeholders for your environment.
+# Secret precedence is: env > ~/.openclaw/openclaw.json > config.yaml.
+
+resource_package: plugins.memory.hermes_memory.config.resources
+resource_system_root: _system
+
+# Writable Obsidian vault root. Only knowledge/ and inbox/ are provider-managed note roots.
+vault_root: "${VAULT_ROOT}"
+skills_root: "${SKILLS_ROOT}"
+quarantine_dirname: _quarantine
+timezone: UTC
+log_level: INFO
+
+# Wikilink suggestion policy.
+wikilink_max_links: 2
+wikilink_top_k: 8
+wikilink_score_threshold: 0.0
+
+# OpenClaw fallback secret source.
+openclaw_config_path: "${OPENCLAW_CONFIG_PATH}"
+
+notion:
+  api_key: ""
+  service_name: notion
+  timeout_seconds: 30.0
+  page_size: 100
+  databases:
+    # Notion에서 DB 열기 → URL의 notion.so/ 뒤 32자리 ID를 복사하세요.
+    # 간단 예시 placeholder는 ${DB_ID}, 실제 복합 예시는 아래 항목들을 참고하세요.
+    - name: "Sub-task"
+      id: "${NOTION_SUBTASKS_DB_ID}"
+      # null/생략: 전체 속성 동기화, []: 제목만 동기화, [{name, type}, ...]: 선택 동기화
+      sync_properties:
+        - name: "제목"
+          type: title
+        - name: "유형"
+          type: select
+        - name: "수행 상태"
+          type: status
+        - name: "메모"
+          type: rich_text
+        - name: "마감일"
+          type: date
+      mapping_property: "유형"
+      mapping:
+        "to do (일정)": schedule
+        "하위 수행사항": schedule
+        "메모/ 리소스": memo
+        "Project Backlogs": project
+        "회의록": memo
+        "inbox": null
+    - name: "User Info"
+      id: "${NOTION_USERS_DB_ID}"
+      sync_properties:
+        - name: "이름"
+          type: title
+        - name: "역할"
+          type: select
+        - name: "연락처"
+          type: rich_text
+      type: knowledge
+
+# 지원 sync_properties 타입:
+# title, rich_text, number, select, multi_select, status, date, person,
+# checkbox, url, email, phone_number, files, relation, created_time,
+# last_edited_time, created_by, last_edited_by, formula, rollup
+
+embedding:
+  backend: api
+  api:
+    provider: openai
+    model: text-embedding-3-small
+    base_url:
+    api_key: ""
+    service_name: openai
+    dimensions:
+    timeout_seconds: 30.0
+  local:
+    model_name: sentence-transformers/all-MiniLM-L6-v2
+    device:
+    normalize: false
+    local_files_only: false
+    batch_size: 32
+
+lightrag:
+  endpoint: http://127.0.0.1:9621
+  base_url: http://127.0.0.1:9621
+  embedding_model: openai
+  working_dir: ./data/lightrag_store
+  query_path: /query
+  upsert_path: /documents/texts
+  delete_path: /documents/delete_document
+  timeout_seconds: 30.0
+
+obsidian_writer:
+  mode: fs
+  vault_name:
+  advanced_uri_base: obsidian://advanced-uri
+  filelock_timeout_seconds: 5.0
+
+llm:
+  provider: openai
+  openai:
+    model: gpt-5.4
+    base_url:
+    api_key:
+    service_name: openai
+    timeout_seconds: 60.0
+  anthropic:
+    model:
+    api_key:
+    service_name: anthropic
+    timeout_seconds: 60.0
+
+gdrive_mcp:
+  enabled: false
+  server_name: gdrive
+  timeout_seconds: 30.0
+
+inbox:
+  similarity_top_k: 5
+  similarity_threshold: 0.85
+  merge_queue_filename: .hermes-inbox-merge-queue.jsonl
+
+mcp:
+  server_name: hermes-memory-provider
+  server_version: 0.14.0
+  instructions: >-
+    Hermes memory provider MCP server. Exposes search, sync, inbox submit,
+    and status tools over stdio.
+  transport: stdio

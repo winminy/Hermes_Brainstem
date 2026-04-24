@@ -1,0 +1,43 @@
+version: 1
+source_of_truth:
+  config:
+    - ~/.hermes/config.yaml
+    - ~/.openclaw/agents/main/agent/models.json
+  note: Hermes runtime config picks openai-codex/gpt-5.4; models.json provides numeric limits.
+default_runtime:
+  provider: openai-codex
+  model: gpt-5.4
+  base_url: https://chatgpt.com/backend-api/codex
+models:
+  openai-codex:
+    gpt-5.4:
+      resolved_backend_provider: codex
+      api: openai-codex-responses
+      input_modalities:
+        - text
+        - image
+      reasoning: true
+      supports_reasoning_effort: true
+      supports_usage_in_streaming: true
+      context_window: 272000
+      max_output_tokens: 128000
+      evidence:
+        config_default: ~/.hermes/config.yaml:model.default
+        config_provider: ~/.hermes/config.yaml:model.provider
+        config_base_url: ~/.hermes/config.yaml:model.base_url
+        runtime_catalog: ~/.openclaw/agents/main/agent/models.json:codex.models[gpt-5.4]
+    gpt-5.3-codex-spark:
+      resolved_backend_provider: codex
+      api: openai-codex-responses
+      input_modalities:
+        - text
+      reasoning: true
+      supports_reasoning_effort: true
+      supports_usage_in_streaming: true
+      context_window: 272000
+      max_output_tokens: 128000
+      evidence:
+        runtime_catalog: ~/.openclaw/agents/main/agent/models.json:codex.models[gpt-5.3-codex-spark]
+fallback_policy:
+  if_missing_in_yaml: consult_provider_runtime_catalog_first
+  if_catalog_unavailable: use_provider_api_limits_and_do_not_guess_higher_values
