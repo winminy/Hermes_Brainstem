@@ -1,8 +1,8 @@
 Phase 0 RECON only for Hermes Memory Provider. Do not write code. Read these docs first:
-- /root/.hermes/user-data/work-products/openclaw-workspace/hermes-memory-provider/docs/codex-bundle/00_CORE.md
-- /root/.hermes/user-data/work-products/openclaw-workspace/hermes-memory-provider/docs/codex-bundle/P0_RECON.md
+- docs/codex-bundle/00_CORE.md
+- docs/codex-bundle/P0_RECON.md
 
-Then, using the live runtime at /root/.local/share/uv/tools/hermes-agent/lib/python3.12/site-packages plus live user config under /root/.hermes and /root/obsidian, produce a compact validation summary only (no file edits) for these axes:
+Then, using the live runtime at <runtime-root>/.local/share/uv/tools/hermes-agent/lib/python3.12/site-packages plus live user config under <runtime-root>/.hermes and <runtime-root>/obsidian, produce a compact validation summary only (no file edits) for these axes:
 1) Hermes runtime plugin loading path / memory interface / hook timing
 2) LightRAG presence / endpoint health / install clues
 3) Notion MCP configured servers / auth location / available tools

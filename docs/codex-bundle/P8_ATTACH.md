@@ -13,7 +13,7 @@
 
 - [ ]  `pipeline/persist_attach.py` — scope 분기 구현
 - [ ]  `scope=knowledge` → 볼트 inbox/ 경유 (normal)
-- [ ]  `scope=skill` → `~/.hermes/skills/{name}/references/` 직접 배치, inbox 건너뜀
+- [ ]  `scope=skill` → `<hermes-home>/skills/{name}/references/` 직접 배치, inbox 건너뜀
 - [ ]  바이너리는 `<vault>/attachments/YYYY/MM/` 또는 skills references/ (scope 따라)
 - [ ]  source prefix = `attach:` 규칙
 - [ ]  pytest: scope 2종 × 파일 유형(.md, 바이너리) 매트릭스
@@ -29,7 +29,7 @@
 
 ## SPEC 발췌 대상
 
-[헤르메스 커스텀 메모리 프로바이더 — 전체 사양](https://www.notion.so/be5d21bbad5046bbada8c72195b8c64a?pvs=21)
+[헤르메스 커스텀 메모리 프로바이더 — 전체 사양](https://www.notion.so/SOURCE_DOC_ID?pvs=21)
 
 - §3-4 persist.attach
 - §4-2 attach 경로
@@ -37,7 +37,7 @@
 
 ## IMPL 발췌 대상
 
-[헤르메스 메모리 프로바이더 구현 요청문 — 코드 구현 상세 설계](https://www.notion.so/a3cc456c55fb43689c7a13f4007ee9f4?pvs=21)
+[헤르메스 메모리 프로바이더 구현 요청문 — 코드 구현 상세 설계](https://www.notion.so/SOURCE_DOC_ID?pvs=21)
 
 - §6-4 persist.attach
 - §11 attach 파이프라인

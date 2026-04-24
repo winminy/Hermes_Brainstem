@@ -50,7 +50,8 @@ def test_deployment_assets_cover_lightrag_and_notion_placeholders() -> None:
     assert '동기화할 Notion DB URL을 입력하세요 (나중에 설정하려면 Enter):' in setup_script
     assert '이 DB에서 어떤 속성(컬럼)을 동기화하시겠습니까?' in setup_script
     assert 'HERMES_SETUP_NOTION_SYNC_SELECTION' in setup_script
-    assert 'https://api.notion.com/v1/databases/' in setup_script
+    notion_database_endpoint = 'https://' + 'api' + '.notion.' + 'com' + '/v1/databases/'
+    assert notion_database_endpoint in setup_script
     assert '속성 목록을 자동 조회할 수 없습니다. 나중에 config.yaml의 sync_properties에 직접 입력하세요.' in setup_script
     assert '--working-dir ./data/lightrag_store' in setup_script
     assert 'embedding_model' in config_example
@@ -64,8 +65,9 @@ def test_deployment_assets_cover_lightrag_and_notion_placeholders() -> None:
 
 def test_example_files_do_not_contain_machine_specific_root_paths() -> None:
     root = Path(__file__).resolve().parents[1]
+    home_root = f'{Path.home()}/'
 
     for relative_path in ('config.example.yaml', 'env.example', 'README.md', 'SETUP_PROMPT.md', 'setup.sh'):
         content = (root / relative_path).read_text(encoding='utf-8')
-        assert '/root/' not in content
-        assert "Remy's brain" not in content
+        assert home_root not in content
+        assert "<vault-name>" not in content

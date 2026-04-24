@@ -3,13 +3,13 @@
 Unknowns were not guessed. These items need user confirmation or an external environment that is not currently present in the live runtime.
 
 ## 1. Authoritative vault root — Resolved
-- **Resolved:** current Hermes runtime config has `vault.root: "/root/obsidian/Remy's brain/Remy's brain"`.
-- **근거:** `/root/.hermes/config.yaml` 실측.
+- **Resolved:** current Hermes runtime config has `vault.root: "<runtime-root>/obsidian/<vault-name>/<vault-name>"`.
+- **근거:** `<runtime-root>/.hermes/config.yaml` 실측.
 - Phase 2 문서는 이 경로를 authoritative vault root로 참조했다.
 
 ## 2. `_system/` vs `system/` — Resolved
 - **Resolved:** 현재 populated vault는 `_system/`을 사용하고, `system/` 경로는 존재하지 않았다.
-- **근거:** `/root/obsidian/Remy's brain/Remy's brain/_system` 실디렉터리 확인, markdown 60개 관측. `/root/obsidian/Remy's brain/Remy's brain/system`는 미존재.
+- **근거:** `<runtime-root>/obsidian/<vault-name>/<vault-name>/_system` 실디렉터리 확인, markdown 60개 관측. `<runtime-root>/obsidian/<vault-name>/<vault-name>/system`는 미존재.
 - 따라서 Phase 2 산출물도 `_system/` 타깃 구조를 유지한다.
 
 ## 3. LightRAG live environment
@@ -19,11 +19,11 @@ Unknowns were not guessed. These items need user confirmation or an external env
 - **Need confirmation:** Where does the intended LightRAG instance live (other venv/container/host), and is `127.0.0.1:9621` still the correct endpoint?
 
 ## 4. Notion MCP server choice
-- No Notion MCP server is configured in `~/.hermes/config.yaml`; only `elevenlabs` and `web-search` are present.
+- No Notion MCP server is configured in `<hermes-home>/config.yaml`; only `elevenlabs` and `web-search` are present.
 - **Need confirmation:** Which Notion MCP server/command/transport should Phase 4 target in this environment?
 
 ## 5. Notion auth source of truth
-- Runtime helper code supports env vars and `/root/.openclaw/openclaw.json#skills.entries.notion.apiKey`, but no live Notion MCP auth source was configured.
+- Runtime helper code supports env vars and `<runtime-root>/.openclaw/openclaw.json#skills.entries.notion.apiKey`, but no live Notion MCP auth source was configured.
 - **Need confirmation:** For this project, should Notion auth come from MCP-managed credentials, Hermes `.env`, keychain, or OpenClaw JSON?
 
 ## 6. Hook payload contract
@@ -33,7 +33,7 @@ Unknowns were not guessed. These items need user confirmation or an external env
 
 ## 7. LLM token limits — Resolved
 - **Resolved:** `vault_meta/_system/E_config/model_limits.yaml`를 실측 config 기준으로 작성했다.
-- **근거:** `/root/.hermes/config.yaml`에서 active runtime이 `openai-codex/gpt-5.4`임을 확인했고, `/root/.openclaw/agents/main/agent/models.json`의 `codex.models[gpt-5.4]`에서 `contextWindow=272000`, `maxTokens=128000`을 확인했다.
+- **근거:** `<runtime-root>/.hermes/config.yaml`에서 active runtime이 `openai-codex/gpt-5.4`임을 확인했고, `<runtime-root>/.openclaw/agents/main/agent/models.json`의 `codex.models[gpt-5.4]`에서 `contextWindow=272000`, `maxTokens=128000`을 확인했다.
 - provider catalog가 비어 있거나 누락될 때만 provider API fallback을 사용한다.
 
 ## 8. GDrive 파일 DB 정본 — Resolved
@@ -57,8 +57,8 @@ Unknowns were not guessed. These items need user confirmation or an external env
 - 따라서 검색/위키링크 제외 조건은 `_quarantine/` 하위 경로 여부로만 해석한다.
 
 ## 12. Default skill draft basenames for `skills/default/*.md` — Resolved (N/A)
-- **Resolved:** N/A. `/root/.hermes/skills/default`는 실제 runtime에 존재하지 않았고, 초기 사양의 default skills 가정과 현재 환경이 불일치했다.
-- **근거:** Phase 3 실측 `ls -1 /root/.hermes/skills/default` 결과가 `No such file or directory`였고, `/root/.hermes/skills`에는 다른 skill 묶음만 존재했다.
+- **Resolved:** N/A. `<runtime-root>/.hermes/skills/default`는 실제 runtime에 존재하지 않았고, 초기 사양의 default skills 가정과 현재 환경이 불일치했다.
+- **근거:** Phase 3 실측 `ls -1 <runtime-root>/.hermes/skills/default` 결과가 `No such file or directory`였고, `<runtime-root>/.hermes/skills`에는 다른 skill 묶음만 존재했다.
 - skills 시스템 자체는 현재 Hermes Memory Provider Phase 4 스코프 밖이므로 canonical basename 확정 작업은 본 phase에서 진행하지 않는다.
 
 ## 13. Inbox merge-confirm queue consumer contract — Resolved
@@ -68,7 +68,7 @@ Unknowns were not guessed. These items need user confirmation or an external env
 
 ## 14. `scope=skill` reference note의 `area` canonical value — Resolved
 - **Resolved:** `scope=skill` reference note의 canonical `area`는 `knowledge`로 통일한다.
-- **근거:** frontmatter 9필드의 `area` enum은 `knowledge | inbox`만 허용되고, 불변 원칙 11도 인박스에서 갈 수 있는 영역을 `knowledge/` 단일로 고정한다. 따라서 skill reference note는 저장 경로(`~/.hermes/skills/{name}/references/`)와 `attach:` source metadata로 skill-scope를 구분하고, frontmatter `area`는 예외 없이 `knowledge`를 유지한다.
+- **근거:** frontmatter 9필드의 `area` enum은 `knowledge | inbox`만 허용되고, 불변 원칙 11도 인박스에서 갈 수 있는 영역을 `knowledge/` 단일로 고정한다. 따라서 skill reference note는 저장 경로(`<hermes-home>/skills/{name}/references/`)와 `attach:` source metadata로 skill-scope를 구분하고, frontmatter `area`는 예외 없이 `knowledge`를 유지한다.
 - Phase 8 attach 구현은 이 canonical rule을 따르는 상태이며 후속 phase도 동일 규칙을 재사용한다.
 
 ## 15. Search tags filter의 canonical match semantics — Resolved

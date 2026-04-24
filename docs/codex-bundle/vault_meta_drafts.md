@@ -3,7 +3,7 @@
 <aside>
 📁
 
-[Hermes Memory Provider — 필요 메타문서 체크리스트](https://www.notion.so/Hermes-Memory-Provider-aaf29ba05b504304bfa52059bf20d0dc?pvs=21)의 16종 체크리스트를 그대로 완성형 파일로 작성. 프롬프트에 임베드하지 않고 **경로 지시 + "읽고 보강"** 환경으로 Codex에 전달.
+[Hermes Memory Provider — 필요 메타문서 체크리스트](https://www.notion.so/Hermes-Memory-Provider-SOURCE_DOC_ID?pvs=21)의 16종 체크리스트를 그대로 완성형 파일로 작성. 프롬프트에 임베드하지 않고 **경로 지시 + "읽고 보강"** 환경으로 Codex에 전달.
 
 </aside>
 
@@ -49,7 +49,7 @@
 
 ## 투입 패턴
 
-Codex 세션에 본 폴더는 **가상 경로**로 명시하고, 구체적인 파일 내용은 [Hermes Memory Provider — 필요 메타문서 체크리스트](https://www.notion.so/Hermes-Memory-Provider-aaf29ba05b504304bfa52059bf20d0dc?pvs=21) 체크리스트 항목을 직접 첨부
+Codex 세션에 본 폴더는 **가상 경로**로 명시하고, 구체적인 파일 내용은 [Hermes Memory Provider — 필요 메타문서 체크리스트](https://www.notion.so/Hermes-Memory-Provider-SOURCE_DOC_ID?pvs=21) 체크리스트 항목을 직접 첨부
 
 ## 참조되는 Phase
 

@@ -9,9 +9,9 @@
 
 ## 원본 출처
 
-- 불변 원칙 15 → [헤르메스 커스텀 메모리 프로바이더 — 전체 사양](https://www.notion.so/be5d21bbad5046bbada8c72195b8c64a?pvs=21) §11
-- 절대 원칙 9 + 금지 5 → [Hermes Memory Provider — 개발 실행 프롬프트 (바탕화면 작업 폴더 버전)](https://www.notion.so/Hermes-Memory-Provider-8f53dd62729248a69d648b61d5c907a2?pvs=21)
-- frontmatter 9필드 → [헤르메스 커스텀 메모리 프로바이더 — 전체 사양](https://www.notion.so/be5d21bbad5046bbada8c72195b8c64a?pvs=21) §4-6·§13, [헤르메스 메모리 프로바이더 구현 요청문 — 코드 구현 상세 설계](https://www.notion.so/a3cc456c55fb43689c7a13f4007ee9f4?pvs=21) §4-4·§16 (vault_[spec.md](http://spec.md) SSoT)
+- 불변 원칙 15 → [헤르메스 커스텀 메모리 프로바이더 — 전체 사양](https://www.notion.so/SOURCE_DOC_ID?pvs=21) §11
+- 절대 원칙 9 + 금지 5 → [Hermes Memory Provider — 개발 실행 프롬프트 (바탕화면 작업 폴더 버전)](https://www.notion.so/Hermes-Memory-Provider-SOURCE_DOC_ID?pvs=21)
+- frontmatter 9필드 → [헤르메스 커스텀 메모리 프로바이더 — 전체 사양](https://www.notion.so/SOURCE_DOC_ID?pvs=21) §4-6·§13, [헤르메스 메모리 프로바이더 구현 요청문 — 코드 구현 상세 설계](https://www.notion.so/SOURCE_DOC_ID?pvs=21) §4-4·§16 (vault_[spec.md](http://spec.md) SSoT)
 
 ## 불변 원칙 15항 (SPEC §11)
 
@@ -37,7 +37,7 @@
 2. **원문 비저장** — 볼트·인덱스·감사 어디에도 평문 대화 없음. 감사는 sha256만.
 3. **area = "knowledge" | "inbox"만 허용**.
 4. **frontmatter 9필드 스키마 강제** — structured output 통과해도 `jsonschema.validate` 재검증.
-5. **인박스 .md 단일 경로** — 바이너리는 `<vault>/attachments/YYYY/MM/`, 스킬 자료는 `~/.hermes/skills/{name}/references/` 직접 배치.
+5. **인박스 .md 단일 경로** — 바이너리는 `<vault>/attachments/YYYY/MM/`, 스킬 자료는 `<hermes-home>/skills/{name}/references/` 직접 배치.
 6. **graduator → LightRAG 순서 고정 (α 정책)** — 볼트가 정본, LightRAG는 파생 인덱스.
 7. **자동훅 LLM 사전 요약 금지** — `pipeline/inline_llm.py` 금지.
 8. **위키링크는 LLM이 쓰지 않는다** — `core.wikilink.suggest_links()`가 LightRAG 후보 기반, 파일당 최대 2개.
@@ -65,7 +65,7 @@
 
 ## 바탕화면 작업 폴더 (절대 규칙)
 
-모든 산출물은 `~/Desktop/hermes-memory-provider/` 내부에만. 실제 시스템(`~/.hermes/`, 실제 볼트, LightRAG 인덱스, git 원격) 직접 쓰기 금지.
+모든 산출물은 `~/Desktop/hermes-memory-provider/` 내부에만. 실제 시스템(`<hermes-home>/`, 실제 볼트, LightRAG 인덱스, git 원격) 직접 쓰기 금지.
 
 - `code/` — plugins/memory/hermes_memory/ 전체 + config.yaml
 - `vault_meta/` — Hermes 에이전트 시스템 config로 번들될 메타문서 초안
@@ -98,13 +98,13 @@
 
 ## RECON 확정 사항 (Phase 0 결과 반영)
 
-- vault root: `/root/obsidian/Remy's brain/Remy's brain`
+- vault root: `<runtime-root>/obsidian/<vault-name>/<vault-name>`
 - live vault note areas: `knowledge/`, `inbox/` only
 - Hermes 에이전트 시스템 config bundle source: `vault_meta/_system/` (live vault 구조와 분리)
-- 플러그인 실제 위치: live site-packages `plugins/memory/*` (사양서의 `~/.hermes/plugins/memory/` 추정은 폐기)
+- 플러그인 실제 위치: live site-packages `plugins/memory/*` (사양서의 `<hermes-home>/plugins/memory/` 추정은 폐기)
 - 자동훅 payload: 평탄 kwargs (`session_id`, `conversation_history`, `model`, `platform`) — 중첩 `session.*` 폐기
 - Notion 접근: notion-client SDK 직접 호출 (MCP 서버 불필요)
 - LightRAG: 필수 의존성. 기본 엔드포인트 `127.0.0.1:9621`, config 오버라이드 가능
 - 임베딩 백엔드: config의 `embedding.backend` 값에 따라 `api` / `local`
-- Secret 우선순위: `env > ~/.openclaw/openclaw.json#skills.entries.{service}.apiKey > yaml`
+- Secret 우선순위: `env > <openclaw-home>/openclaw.json#skills.entries.{service}.apiKey > yaml`
 - 모델 토큰 한도: `vault_meta/_system/E_config/model_limits.yaml` SSoT, provider API fallback

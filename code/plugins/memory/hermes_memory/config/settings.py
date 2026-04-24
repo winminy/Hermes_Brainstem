@@ -214,7 +214,7 @@ class InboxSettings(BaseModel):
 
 
 class MCPSettings(BaseModel):
-    server_name: str = 'hermes-memory-provider'
+    server_name: str = 'hermes_memory_provider'
     server_version: str = '0.14.0'
     instructions: str = (
         'Hermes memory provider MCP server. '
@@ -256,7 +256,7 @@ class HermesMemorySettings(BaseSettings):
     resource_package: str = 'plugins.memory.hermes_memory.config.resources'
     resource_system_root: str = '_system'
     vault_root: Path | None = None
-    skills_root: Path = Path('~/.hermes/skills')
+    skills_root: Path = Field(default_factory=lambda: Path.home() / '.hermes' / 'skills')
     quarantine_dirname: str = '_quarantine'
     timezone: str = 'UTC'
     log_level: str = 'INFO'

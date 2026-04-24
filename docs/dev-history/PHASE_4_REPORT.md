@@ -49,7 +49,7 @@
 
 ## 4. RECON.md 보강 사항
 - Notion은 MCP가 아니라 notion-client SDK 직접 호출 구조로 고정했다.
-- secret precedence는 `env > /root/.openclaw/openclaw.json > yaml`로 `ConfigLayer.resolve_secret()`에 반영했다.
+- secret precedence는 `env > <runtime-root>/.openclaw/openclaw.json > yaml`로 `ConfigLayer.resolve_secret()`에 반영했다.
 - LightRAG query path는 기존 `/query` 사용 흔적을 따르되, upsert/delete path는 live openapi 부재로 config 주입형으로 남겨 RECON 불확실성을 코드 레벨에서 드러냈다.
 
 ## 5. 질문 보류 신규 항목

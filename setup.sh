@@ -540,7 +540,7 @@ else:
 config_content = f"""resource_package: plugins.memory.hermes_memory.config.resources
 resource_system_root: _system
 vault_root: {q(vault_root)}
-skills_root: \"~/.hermes/skills\"
+skills_root: \"./skills\"
 quarantine_dirname: _quarantine
 timezone: UTC
 log_level: INFO
@@ -613,7 +613,7 @@ inbox:
   merge_queue_filename: .hermes-inbox-merge-queue.jsonl
 
 mcp:
-  server_name: hermes-memory-provider
+  server_name: hermes_memory_provider
   server_version: 0.14.0
   instructions: >-
     Hermes memory provider MCP server. Exposes search, sync, inbox submit,
@@ -623,7 +623,7 @@ mcp:
 
 env_content = f"""HERMES_MEMORY_CONFIG_FILE=./config.yaml
 HERMES_MEMORY_VAULT_ROOT={vault_root}
-HERMES_MEMORY_SKILLS_ROOT=~/.hermes/skills
+HERMES_MEMORY_SKILLS_ROOT=./skills
 HERMES_MEMORY_OPENCLAW_CONFIG_PATH=~/.openclaw/openclaw.json
 HERMES_MEMORY_EMBEDDING__BACKEND={embedding_backend}
 HERMES_MEMORY_LIGHTRAG__ENDPOINT={lightrag_endpoint}

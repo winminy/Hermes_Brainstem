@@ -2,8 +2,8 @@
 
 | 대상 | 변경 내용 |
 | --- | --- |
-| `/root/obsidian/Remy's brain/Remy's brain/system` | `_system/` 으로 리네임 |
-| `~/.hermes/config.yaml` | `vault.root`, `embedding.backend`, `lightrag.endpoint` 설정 추가 |
+| `<runtime-root>/obsidian/Remy's brain/Remy's brain/system` | `_system/` 으로 리네임 |
+| `<hermes-home>/config.yaml` | `vault.root`, `embedding.backend`, `lightrag.endpoint` 설정 추가 |
 | `docs/codex-bundle/00_CORE.md` | P14 배포 가능성 원칙 + RECON 확정 사항 섹션 추가 |
 | `docs/codex-bundle/P4_BACKENDS.md` | 목표/수용 기준을 LightRAG 필수·notion-client·pluggable embedding 기준으로 갱신 |
 | `docs/codex-bundle/P11_HOOKS.md` | 공통 hook signature(flat kwargs) 수용 기준 추가 |

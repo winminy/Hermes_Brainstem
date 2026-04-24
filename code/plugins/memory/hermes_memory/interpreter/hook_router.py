@@ -145,12 +145,11 @@ def _routes_from_spec(definition: HookDefinition, spec: NotionDatasourceSpec) ->
 
 
 def _notion_types_from_rule(rule: NotionRule) -> tuple[str | None, ...]:
-    direct = rule.when.get('유형')
-    if isinstance(direct, str):
-        return (direct,)
-    multiple = rule.when.get('유형_in')
-    if isinstance(multiple, list):
-        return tuple(str(item) for item in multiple)
+    for key, value in rule.when.items():
+        if key.endswith('_in') and isinstance(value, list):
+            return tuple(str(item) for item in value)
+        if isinstance(value, str):
+            return (value,)
     return (None,)
 
 

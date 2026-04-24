@@ -30,7 +30,7 @@
 
 ## SPEC 발췌 대상
 
-[헤르메스 커스텀 메모리 프로바이더 — 전체 사양](https://www.notion.so/be5d21bbad5046bbada8c72195b8c64a?pvs=21)
+[헤르메스 커스텀 메모리 프로바이더 — 전체 사양](https://www.notion.so/SOURCE_DOC_ID?pvs=21)
 
 - §4 end-to-end 전 범위
 - §4-6 Reduce 출력 스키마
@@ -38,7 +38,7 @@
 
 ## IMPL 발췌 대상
 
-[헤르메스 메모리 프로바이더 구현 요청문 — 코드 구현 상세 설계](https://www.notion.so/a3cc456c55fb43689c7a13f4007ee9f4?pvs=21)
+[헤르메스 메모리 프로바이더 구현 요청문 — 코드 구현 상세 설계](https://www.notion.so/SOURCE_DOC_ID?pvs=21)
 
 - §4 단계 0–10
 - §8 dispatcher

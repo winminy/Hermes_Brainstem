@@ -11,7 +11,7 @@ A 그룹 엔트리 메타문서 3종(`vault_spec.md`, `TAGS.md`, `notion_datasou
 
 ## 수용 기준
 
-- [ ]  `vault_meta/_system/vault_spec.md` — frontmatter 9필드 SSoT, type enum 7종, area=knowledge 단일, 옵시디언 문법 규칙 명시, vault root 실측값 /root/obsidian/Remy's brain/Remy's brain 반영
+- [ ]  `vault_meta/_system/vault_spec.md` — frontmatter 9필드 SSoT, type enum 7종, area=knowledge 단일, 옵시디언 문법 규칙 명시, vault root 실측값 <runtime-root>/obsidian/<vault-name>/<vault-name> 반영
 - [ ]  `vault_meta/_system/TAGS.md` — registry enum 정의, 계층 구조, LLM 가시 필드
 - [ ]  `vault_meta/_system/notion_datasource_map.md` — 노션 DB → type·tags·area 매핑 (Sub-task DB, User Info DB 포함; GDrive 파일 DB는 out-of-scope: 외부 파일 카탈로그)
 - [ ]  세 문서 상호 참조 일관성 검증
@@ -27,7 +27,7 @@ A 그룹 엔트리 메타문서 3종(`vault_spec.md`, `TAGS.md`, `notion_datasou
 
 ## SPEC 발췌 대상
 
-[헤르메스 커스텀 메모리 프로바이더 — 전체 사양](https://www.notion.so/be5d21bbad5046bbada8c72195b8c64a?pvs=21)
+[헤르메스 커스텀 메모리 프로바이더 — 전체 사양](https://www.notion.so/SOURCE_DOC_ID?pvs=21)
 
 - §8 _system 메타문서 세트
 - §8-1 vault_[spec.md](http://spec.md)
@@ -38,7 +38,7 @@ A 그룹 엔트리 메타문서 3종(`vault_spec.md`, `TAGS.md`, `notion_datasou
 
 ## IMPL 발췌 대상
 
-[헤르메스 메모리 프로바이더 구현 요청문 — 코드 구현 상세 설계](https://www.notion.so/a3cc456c55fb43689c7a13f4007ee9f4?pvs=21)
+[헤르메스 메모리 프로바이더 구현 요청문 — 코드 구현 상세 설계](https://www.notion.so/SOURCE_DOC_ID?pvs=21)
 
 - §4-4 9필드 강제 경로
 - §7 interpreter·schema_builder

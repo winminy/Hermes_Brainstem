@@ -1,8 +1,8 @@
 version: 1
 source_of_truth:
   config:
-    - ~/.hermes/config.yaml
-    - ~/.openclaw/agents/main/agent/models.json
+    - ${HERMES_CONFIG_FILE}
+    - ${OPENCLAW_AGENT_MODELS_JSON}
   note: Hermes runtime config picks openai-codex/gpt-5.4; models.json provides numeric limits.
 default_runtime:
   provider: openai-codex
@@ -22,10 +22,10 @@ models:
       context_window: 272000
       max_output_tokens: 128000
       evidence:
-        config_default: ~/.hermes/config.yaml:model.default
-        config_provider: ~/.hermes/config.yaml:model.provider
-        config_base_url: ~/.hermes/config.yaml:model.base_url
-        runtime_catalog: ~/.openclaw/agents/main/agent/models.json:codex.models[gpt-5.4]
+        config_default: ${HERMES_CONFIG_FILE}:model.default
+        config_provider: ${HERMES_CONFIG_FILE}:model.provider
+        config_base_url: ${HERMES_CONFIG_FILE}:model.base_url
+        runtime_catalog: ${OPENCLAW_AGENT_MODELS_JSON}:codex.models[gpt-5.4]
     gpt-5.3-codex-spark:
       resolved_backend_provider: codex
       api: openai-codex-responses
@@ -37,7 +37,7 @@ models:
       context_window: 272000
       max_output_tokens: 128000
       evidence:
-        runtime_catalog: ~/.openclaw/agents/main/agent/models.json:codex.models[gpt-5.3-codex-spark]
+        runtime_catalog: ${OPENCLAW_AGENT_MODELS_JSON}:codex.models[gpt-5.3-codex-spark]
 fallback_policy:
   if_missing_in_yaml: consult_provider_runtime_catalog_first
   if_catalog_unavailable: use_provider_api_limits_and_do_not_guess_higher_values

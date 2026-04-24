@@ -7,7 +7,7 @@
 ## 진입 선행조건
 
 - 작업 폴더 `~/Desktop/hermes-memory-provider/` 초기화 (`code/`, `vault_meta/`, `tests/`, `docs/` 4 디렉터리)
-- [📦 Hermes Memory Provider — Codex 투입 번들](https://www.notion.so/Hermes-Memory-Provider-Codex-73684b10b1cd4a9fa61b7049547583d1?pvs=21) 상시 첨부
+- [📦 Hermes Memory Provider — Codex 투입 번들](https://www.notion.so/Hermes-Memory-Provider-Codex-SOURCE_DOC_ID?pvs=21) 상시 첨부
 
 ## 수용 기준
 
@@ -32,7 +32,7 @@
 - `which hermes`, `pip show hermes-agent`
 - 인터프리터에서 `import hermes` → 모듈 경로 확보
 - 플러그인 로더 클래스 공개 API `inspect.getsource`
-- `~/.hermes/plugins/memory/` 기존 provider 엔트리포인트 선두 80줄 학습
+- `<hermes-home>/plugins/memory/` 기존 provider 엔트리포인트 선두 80줄 학습
 - 훅 콜백 세션 payload 필드명(`session.id`, `session.messages`, `session.attachments`) 실측 확인
 - 불일치 시 Phase 1 차단 → 사용자 보고
 
@@ -45,7 +45,7 @@
 ### 3. Notion MCP
 
 - `pip show mcp` 버전 확인
-- `~/.hermes/config/mcp.yaml` 또는 `~/.config/mcp/`에서 Notion MCP 실행 방식·토큰 저장 위치 파악
+- `<hermes-home>/config/mcp.yaml` 또는 `~/.config/mcp/`에서 Notion MCP 실행 방식·토큰 저장 위치 파악
 - 토큰이 keychain이면 **위치만** 기록, 값 자체는 RECON 미기록
 - `query_datasource`·pagination SDK 시그니처 샘플 호출 검증
 
@@ -57,7 +57,7 @@
 ### 5. 볼트 메타문서 현황
 
 - `config.yaml` `vault.root` 확정
-- `_system/` 하위 16종 존재 여부 표 기록 ([Hermes Memory Provider — 필요 메타문서 체크리스트](https://www.notion.so/Hermes-Memory-Provider-aaf29ba05b504304bfa52059bf20d0dc?pvs=21) 대조)
+- `_system/` 하위 16종 존재 여부 표 기록 ([Hermes Memory Provider — 필요 메타문서 체크리스트](https://www.notion.so/Hermes-Memory-Provider-SOURCE_DOC_ID?pvs=21) 대조)
 - 없는 항목 → Phase 1·2에서 `vault_meta/_system/` 초안 작성
 
 ### 6. Obsidian 쓰기 경로
@@ -67,7 +67,7 @@
 
 ## 프롬포트 Phase 0 블록
 
-[Hermes Memory Provider — 개발 실행 프롬프트 (바탕화면 작업 폴더 버전)](https://www.notion.so/Hermes-Memory-Provider-8f53dd62729248a69d648b61d5c907a2?pvs=21) 본문의 **Phase 0** 단락 전문 참조. Phase 1 이후 착수는 `docs/RECON.md` + `docs/QUESTIONS.md` 제출 후 사용자 회신까지 대기.
+[Hermes Memory Provider — 개발 실행 프롬프트 (바탕화면 작업 폴더 버전)](https://www.notion.so/Hermes-Memory-Provider-SOURCE_DOC_ID?pvs=21) 본문의 **Phase 0** 단락 전문 참조. Phase 1 이후 착수는 `docs/RECON.md` + `docs/QUESTIONS.md` 제출 후 사용자 회신까지 대기.
 
 ## 리포트 템플릿 (PHASE_0_[REPORT.md](http://REPORT.md))
 

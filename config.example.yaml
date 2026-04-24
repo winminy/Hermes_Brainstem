@@ -124,7 +124,7 @@ inbox:
   merge_queue_filename: .hermes-inbox-merge-queue.jsonl
 
 mcp:
-  server_name: hermes-memory-provider
+  server_name: hermes_memory_provider
   server_version: 0.14.0
   instructions: >-
     Hermes memory provider MCP server. Exposes search, sync, inbox submit,

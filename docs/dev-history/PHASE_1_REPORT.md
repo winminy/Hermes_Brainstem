@@ -17,15 +17,15 @@
 ## 3. Acceptance 체크
 | 항목 | 충족 근거 |
 | --- | --- |
-| `vault_meta/_system/vault_spec.md` | frontmatter 9필드, `area: knowledge`, type enum 7종, source prefix 규칙, 옵시디언 문법 규칙, vault root 실측값 `/root/obsidian/Remy's brain/Remy's brain`을 명시했다 |
+| `vault_meta/_system/vault_spec.md` | frontmatter 9필드, `area: knowledge`, type enum 7종, source prefix 규칙, 옵시디언 문법 규칙, vault root 실측값 `<runtime-root>/obsidian/Remy's brain/Remy's brain`을 명시했다 |
 | `vault_meta/_system/TAGS.md` | registry enum 17종, hierarchy용 `parent`, LLM-visible fields(`tag`, `parent`, `description`)를 YAML로 정의했다 |
 | `vault_meta/_system/notion_datasource_map.md` | Sub-task DB와 User Info DB의 실제 DB URL/ID를 live Notion API로 확인해 기록했고, GDrive 파일 DB는 미확정 datasource로 포함하되 URL 추측 없이 `null`과 `확인 필요`로 남겼다 |
 | 상호 참조 일관성 | 세 문서가 `[[vault_spec]]`, `[[TAGS]]`, `[[notion_datasource_map]]`를 교차 참조하고, `area=knowledge`, tags registry, Notion mapping 규칙을 동일하게 유지했다 |
 
 ## 4. RECON.md 보강 사항
-- 초기 지시의 workspace path(`/root/.local/share/uv/tools/hermes-agent/lib/python3.12/site-packages`)에는 `docs/codex-bundle/00_CORE.md`, `P1_META_A.md`, `vault_meta/`, `docs/`가 없었다
-- 실제 Phase 작업 폴더는 `/root/.hermes/user-data/work-products/openclaw-workspace/hermes-memory-provider`로 확인했다
-- live vault 조사 대상 `/root/obsidian/Remy's brain/Remy's brain/_system`는 존재했고, top-level dir은 `behavior`, `data_ops`, `evaluation`, `neuro_genesis`, `self_reference`, `sync_pipeline` 6개였다
+- 초기 지시의 workspace path(`<runtime-root>/.local/share/uv/tools/hermes-agent/lib/python3.12/site-packages`)에는 `docs/codex-bundle/00_CORE.md`, `P1_META_A.md`, `vault_meta/`, `docs/`가 없었다
+- 실제 Phase 작업 폴더는 `<runtime-root>/.hermes/user-data/work-products/openclaw-workspace/hermes-memory-provider`로 확인했다
+- live vault 조사 대상 `<runtime-root>/obsidian/Remy's brain/Remy's brain/_system`는 존재했고, top-level dir은 `behavior`, `data_ops`, `evaluation`, `neuro_genesis`, `self_reference`, `sync_pipeline` 6개였다
 - live `_system` markdown 수는 총 60개였고, 디렉터리별 count는 `behavior 6`, `data_ops 8`, `evaluation 15`, `neuro_genesis 9`, `self_reference 18`, `sync_pipeline 4`였다
 - 직접 참고한 live `_system` 재료는 `data_ops/vault_spec.md`, `self_reference/TAGS.md`, `self_reference/notion_sync.md`, `behavior/notion_ops.md`, `data_ops/save_notion.md`, `data_ops/save_gdrive.md`, `self_reference/gdrive_sync.md`, `behavior/gdrive_ops.md`, `self_reference/env.md`였다
 - `notion_datasource_map.md`에 대응하는 live `_system` 문서는 없었고, `env.md`에는 vault root와 Notion DB ID가 TODO 상태로 남아 있었다

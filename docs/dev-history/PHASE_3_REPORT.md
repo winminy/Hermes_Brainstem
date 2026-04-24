@@ -73,8 +73,8 @@
 ## 4. RECON.md 보강 사항
 - Phase 3는 실제 볼트 접근 없이 package 내부 `config/resources/_system/` bundle만 읽도록 구현했다.
 - Q11은 경로 기반 quarantine(` <vault_root>/_quarantine/ ` prefix)로 확정하고, `ConfigLayer.is_quarantined_path()`와 `wikilink.suggest_links()` 필터에 반영했다.
-- Q12 실측 시도 결과 `ls -1 /root/.hermes/skills` = `codex-imagegen-via-chatgpt-oauth`, `devops`, `devtools`, `instagram-reel-production`, `media`, `remotion-best-practices`, `social-media`, `web-research`.
-- Q12 실측 시도 결과 `ls -1 /root/.hermes/skills/default` = `ls: cannot access '/root/.hermes/skills/default': No such file or directory`.
+- Q12 실측 시도 결과 `ls -1 <runtime-root>/.hermes/skills` = `codex-imagegen-via-chatgpt-oauth`, `devops`, `devtools`, `instagram-reel-production`, `media`, `remotion-best-practices`, `social-media`, `web-research`.
+- Q12 실측 시도 결과 `ls -1 <runtime-root>/.hermes/skills/default` = `ls: cannot access '<runtime-root>/.hermes/skills/default': No such file or directory`.
 
 ## 5. 질문 보류 신규 항목
 - 신규 질문 없음.

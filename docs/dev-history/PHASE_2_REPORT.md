@@ -31,15 +31,15 @@
 | B data_ops 3종 작성 | `vault_meta/_system/data_ops/` 아래 `file_policy.md`, `retention.md`, `binary_policy.md`를 생성했고, `file_type` registry·attachment path·hash-only retention을 [[vault_spec]] 규칙과 연결했다 |
 | C self_reference 4종 작성 | `persist_policy.md`, `scope_policy.md`, `hook_registry.md`, `quarantine_policy.md`를 생성했고, `persist.process`/`persist.attach` 분기, scope=skill β 정책, 자동훅 3종, invariant 격리 규칙을 명시했다 |
 | D skills 6종 작성 | `skill_spec.md`, `skill_registry.md`, `skills/default/` 4개 초안을 생성했고, hook↔skill binding과 `references/` 규약을 정리했다 |
-| `E_config/model_limits.yaml` 작성 | `/root/.hermes/config.yaml`의 active model(`openai-codex/gpt-5.4`)과 `/root/.openclaw/agents/main/agent/models.json`의 numeric limits를 근거로 `context_window=272000`, `max_output_tokens=128000`을 기록했다 |
+| `E_config/model_limits.yaml` 작성 | `<runtime-root>/.hermes/config.yaml`의 active model(`openai-codex/gpt-5.4`)과 `<runtime-root>/.openclaw/agents/main/agent/models.json`의 numeric limits를 근거로 `context_window=272000`, `max_output_tokens=128000`을 기록했다 |
 | Phase 1 SSoT 일관성 유지 | `vault_spec.md`, `TAGS.md`, `notion_datasource_map.md`는 수정하지 않았고, 새 문서에서 `area=knowledge`, type enum 7종, tag exact-match 원칙만 참조했다 |
-| 실제 볼트 비수정 | 모든 산출물을 작업 루트 내부(`vault_meta/_system/`, `docs/`)에만 작성했고 `/root/obsidian/...`에는 쓰지 않았다 |
+| 실제 볼트 비수정 | 모든 산출물을 작업 루트 내부(`vault_meta/_system/`, `docs/`)에만 작성했고 `<runtime-root>/obsidian/...`에는 쓰지 않았다 |
 | Q10 처리 | `TAGS.md`와 `notion_datasource_map.md`의 existing exact-match 규칙을 근거로 `docs/QUESTIONS.md` Q10을 Resolved 처리했다 |
 
 ## 4. RECON.md 보강 사항
-- `/root/.hermes/config.yaml` 실측 결과 현재 runtime에는 `vault.root: "/root/obsidian/Remy's brain/Remy's brain"`가 존재한다. Phase 0 시점 기록과 달라졌거나 이후 config가 보강된 상태다
-- `/root/.openclaw/agents/main/agent/models.json`의 `codex.models[gpt-5.4]`, `codex.models[gpt-5.3-codex-spark]`에서 numeric context/output limit을 확인했다
-- 실측 `~/.hermes/skills/`는 `SKILL.md`를 가진 skill 24개를 보유하고, optional subdir는 `references/ 7`, `assets/ 4`, `scripts/ 4`, `templates/ 4`, `rules/ 1`로 관찰됐다
+- `<runtime-root>/.hermes/config.yaml` 실측 결과 현재 runtime에는 `vault.root: "<runtime-root>/obsidian/Remy's brain/Remy's brain"`가 존재한다. Phase 0 시점 기록과 달라졌거나 이후 config가 보강된 상태다
+- `<runtime-root>/.openclaw/agents/main/agent/models.json`의 `codex.models[gpt-5.4]`, `codex.models[gpt-5.3-codex-spark]`에서 numeric context/output limit을 확인했다
+- 실측 `<hermes-home>/skills/`는 `SKILL.md`를 가진 skill 24개를 보유하고, optional subdir는 `references/ 7`, `assets/ 4`, `scripts/ 4`, `templates/ 4`, `rules/ 1`로 관찰됐다
 - 실측 vault markdown frontmatter의 `file_type` 값은 모두 `md`였고, `attachments/` 하위 실파일은 이번 관찰 시점에 없었다
 - `P9_SEARCH.md`의 `frontmatter quarantine: true` 문구는 Phase 1의 닫힌 9필드 schema와 충돌하므로, Phase 2는 경로 기반 quarantine을 우선 채택하고 질문으로 승격했다
 

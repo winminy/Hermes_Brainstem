@@ -26,14 +26,14 @@ MCP 서버 바인딩 + tool 4종 (`persist.process`, `persist.attach`, `semantic
 
 ## SPEC 발췌 대상
 
-[헤르메스 커스텀 메모리 프로바이더 — 전체 사양](https://www.notion.so/be5d21bbad5046bbada8c72195b8c64a?pvs=21)
+[헤르메스 커스텀 메모리 프로바이더 — 전체 사양](https://www.notion.so/SOURCE_DOC_ID?pvs=21)
 
 - §3 tool 계약 4종
 - §11-7 JSON 스키마 강제
 
 ## IMPL 발췌 대상
 
-[헤르메스 메모리 프로바이더 구현 요청문 — 코드 구현 상세 설계](https://www.notion.so/a3cc456c55fb43689c7a13f4007ee9f4?pvs=21)
+[헤르메스 메모리 프로바이더 구현 요청문 — 코드 구현 상세 설계](https://www.notion.so/SOURCE_DOC_ID?pvs=21)
 
 - §6 tool 입력 스키마 4종
 - §17 MCP 서버 바인딩
@@ -41,7 +41,7 @@ MCP 서버 바인딩 + tool 4종 (`persist.process`, `persist.attach`, `semantic
 ## 구현 포인트
 
 - tool 스키마는 `schemas/*.json` 자산 폴더에서 SSoT로 명시 운용
-- MCP 서버는 `~/.hermes/config/mcp.yaml` 등록 규약 RECON 결과 준수
+- MCP 서버는 `<hermes-home>/config/mcp.yaml` 등록 규약 RECON 결과 준수
 
 ## 리포트 템플릿
 

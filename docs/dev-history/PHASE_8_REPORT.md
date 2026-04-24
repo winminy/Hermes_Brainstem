@@ -50,7 +50,7 @@
 
 ## 4. RECON.md 보강 사항
 - 신규 RECON 보강 없음.
-- 기존 확정사항만 사용했다: note area=`knowledge/`,`inbox/`; quarantine=`<vault_root>/_quarantine/`; attachment root=`attachments/YYYY/MM/`; skill references=`~/.hermes/skills/{name}/references/`.
+- 기존 확정사항만 사용했다: note area=`knowledge/`,`inbox/`; quarantine=`<vault_root>/_quarantine/`; attachment root=`attachments/YYYY/MM/`; skill references=`<hermes-home>/skills/{name}/references/`.
 
 ## 5. 질문 보류 신규 항목
 - `docs/QUESTIONS.md`에 **14. `scope=skill` reference note의 `area` canonical value**를 추가했다.
