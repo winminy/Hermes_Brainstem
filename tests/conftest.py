@@ -4,6 +4,8 @@ import importlib
 from pathlib import Path
 import sys
 
+import pytest
+
 ROOT = Path(__file__).resolve().parents[1]
 CODE_ROOT = ROOT / 'code'
 if str(CODE_ROOT) not in sys.path:
@@ -18,3 +20,8 @@ if existing_plugins is not None:
         sys.modules.pop('plugins.memory.hermes_memory', None)
 
 importlib.invalidate_caches()
+
+
+@pytest.fixture()
+def anyio_backend() -> str:
+    return 'asyncio'

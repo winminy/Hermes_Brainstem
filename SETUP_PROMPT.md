@@ -18,13 +18,14 @@ Ask for these values in plain language:
   - `[1] OpenAI API (text-embedding-3-small)`
   - `[2] 로컬 모델 (sentence-transformers/all-MiniLM-L6-v2)`
   - 모르면 **기본값은 OpenAI API**라고 안내
-- **Notion API 키가 있나요? 없으면 나중에 설정해도 됩니다.**
+- **Notion Integration Token / Notion API 키가 있나요? 없으면 나중에 설정해도 됩니다.**
 - **동기화할 Notion DB URL을 알려주세요. 나중에 설정하려면 Enter로 건너뛸 수 있습니다.**
 - **이 DB에서 어떤 속성(컬럼)을 동기화하시겠습니까?**
   - Notion API 키가 있으면 속성 목록을 보여주고 번호 선택을 요청
   - Enter면 기본값은 **전체 동기화**라고 안내
   - 사용자가 모르면 `sync_properties: null`로 두고 나중에 수정 가능하다고 설명
-- **어떤 속성 기준으로 type을 분류할까요?**
+- **어떤 속성 기준으로 type을 분류할까요?** 속성 매핑(mapping)이 필요하면 `mapping_property`와 `mapping`에 기록한다고 안내
+- **동기화 주기(cron/scheduler)는 어떻게 둘까요?** 모르면 기본 interval 기반 설정을 사용하고 최초 동기화는 dry-run만 제안
 - **OpenAI API 키가 있나요?**
   - OpenAI LightRAG를 고르면 없을 때 반드시 다시 물어서 `.env`에 넣어야 함
 

@@ -93,6 +93,11 @@ lightrag:
   delete_path: /documents/delete_document
   timeout_seconds: 30.0
 
+sync:
+  scheduler: cron
+  interval_minutes: 60
+  initial_sync: dry_run
+
 obsidian_writer:
   mode: fs
   vault_name:

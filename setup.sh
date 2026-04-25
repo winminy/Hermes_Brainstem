@@ -13,8 +13,9 @@ What it does:
   1. Checks for Python 3.10+
   2. Runs editable install with the embedding-api extra
   3. Installs LightRAG and prompts for the LightRAG embedding mode
-  4. Prompts for vault path, optional Notion credentials, optional Notion DB URL,
-     and live Notion property selection when the API key + DB are available
+  4. Prompts for vault path, optional Notion credentials/NOTION_TOKEN,
+     optional Notion DB URL, live Notion property selection when the API key + DB
+     are available, sync scheduler/cron preference, and 최초 동기화 dry-run intent
   5. Writes config.yaml and .env
   6. Creates knowledge/, inbox/, _quarantine/, and data/lightrag_store/ if needed
   7. Optionally starts the LightRAG server, then runs hermes-memory-doctor
@@ -22,6 +23,7 @@ What it does:
 Non-interactive Notion property selection:
   HERMES_SETUP_NOTION_SYNC_SELECTION=1,3   # select numbered properties
   HERMES_SETUP_NOTION_SYNC_SELECTION=title-only
+  HERMES_SETUP_SYNC_SCHEDULER=cron
 EOF
 }
 
@@ -461,6 +463,8 @@ backup_if_exists() {
 
 NOTION_SYNC_PROPERTIES_JSON='null'
 NOTION_SYNC_PROPERTIES_SUMMARY='not configured'
+SYNC_SCHEDULER="${HERMES_SETUP_SYNC_SCHEDULER:-cron}"
+SYNC_INTERVAL_MINUTES="${HERMES_SETUP_SYNC_INTERVAL_MINUTES:-60}"
 
 prompt_vault_root
 prompt_lightrag_embedding_model
@@ -470,6 +474,8 @@ if [[ "$LIGHTRAG_EMBEDDING_MODEL" == "openai" ]]; then
 fi
 prompt_optional_notion_settings
 prompt_notion_sync_properties
+echo "[INFO] 동기화 주기 scheduler/cron: $SYNC_SCHEDULER every ${SYNC_INTERVAL_MINUTES} minutes"
+echo "[INFO] 최초 동기화는 사용자 승인 전까지 dry-run만 수행하세요."
 read -r -p "LightRAG 서버를 지금 기동할까요? [y/N]: " START_LIGHTRAG_NOW
 START_LIGHTRAG_NOW="$(printf '%s' "${START_LIGHTRAG_NOW:-N}" | tr '[:upper:]' '[:lower:]')"
 

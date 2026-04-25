@@ -26,6 +26,8 @@ def build_sync_tool(services: HermesMemoryServices) -> ManagedTool:
         if mode == 'incremental':
             result = services.pipeline.incremental_sync(datasources=datasources or None, vault_root=vault_root, dry_run=dry_run)
             return _batch_payload(result.mode, result.datasources, result.entries, result.counts)
+        # Keep single-mode requirements enforced in runtime while the JSON schema
+        # stays compatible with OpenAI function-calling validators.
         datasource = _require_string(arguments.get('datasource'), field='datasource')
         page_id = _require_string(arguments.get('page_id'), field='page_id')
         entry = services.pipeline.process_single_entry(datasource, page_id=page_id, vault_root=vault_root, dry_run=dry_run)
