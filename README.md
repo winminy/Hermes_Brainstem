@@ -11,20 +11,20 @@ Hermes Memory Provider turns the Phase 1–14 memory pipeline into a deployable 
 ## 2. 아키텍처 다이어그램
 
 ```mermaid
-flowchart LR
-    User[LLM / MCP Client] --> MCP[MCP Server]
-    MCP --> Search[Search Tool]
-    MCP --> Sync[Sync Tool]
-    MCP --> Inbox[Inbox Submit Tool]
-    MCP --> Status[Status Tool]
-    Sync --> Pipeline[Sync Pipeline]
-    Inbox --> Pipeline
-    Pipeline --> Vault[(Obsidian Vault)]
-    Pipeline --> Notion[(Notion API)]
-    Search --> LightRAG[(LightRAG)]
-    MCP --> Hooks[Scheduled Hooks]
-    Hooks --> Vault
-    Hooks --> Notion
+flowchart TD
+    client["MCP Client"] --> server["MCP Server"]
+    server --> search["Search Tool"]
+    server --> sync["Sync Tool"]
+    server --> inbox["Inbox Submit Tool"]
+    server --> status["Status Tool"]
+    sync --> pipeline["Sync Pipeline"]
+    inbox --> pipeline
+    pipeline --> vault["Obsidian Vault"]
+    pipeline --> notion["Notion API"]
+    search --> lightrag["LightRAG"]
+    server --> hooks["Scheduled Hooks"]
+    hooks --> vault
+    hooks --> notion
 ```
 
 ## 3. Quick Start
